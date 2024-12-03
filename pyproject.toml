@@ -1,0 +1,15 @@
+[project]
+name = "fastapi-db-zoo"
+version = "0.1.0"
+description = "Simple example project. Use Pydantic, FastAPI, sqlmodel, pytest, uv."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.5",
+    "sqlmodel>=0.0.22",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+]
