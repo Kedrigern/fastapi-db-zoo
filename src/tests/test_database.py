@@ -5,23 +5,15 @@ from src.services.pet_service import get_all_pets
 
 
 def prepare_data(session: Session):
-    franchie = Kind(
-        name="French buldock"
-    )
+    franchie = Kind(name="French buldock")
     session.add(franchie)
-    session.add(Kind(
-        name="Boxer"
-    ))
-    session.add(Kind(
-        name="Persian cat"
-    ))
+    session.add(Kind(name="Boxer"))
+    session.add(Kind(name="Persian cat"))
     session.commit()
     session.refresh(franchie)
-    session.add(Pet(
-        name="Arya",
-        born=datetime.fromisoformat("2023-06-15"),
-        kind_id=franchie.id
-    ))
+    session.add(
+        Pet(name="Arya", born=datetime.fromisoformat("2023-06-15"), kind_id=franchie.id)
+    )
     session.commit()
 
 

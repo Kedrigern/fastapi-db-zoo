@@ -6,19 +6,18 @@ from .routers.kind import kind_router
 
 
 @asynccontextmanager
-async def life_span(app2: FastAPI):
+async def life_span(_: FastAPI):
     create_db_and_tables()
     yield
 
 
-app = FastAPI(lifespan=life_span)
+app = FastAPI(name="ZOO", lifespan=life_span)
 
 
-@app.get('/')
+@app.get("/")
 def hello():
-    return {'detail': 'Hello world'}
+    return {"detail": "Hello world"}
 
 
-app.include_router(pets_router, prefix='/pet')
-app.include_router(kind_router, prefix='/kind')
-
+app.include_router(pets_router, prefix="/pet")
+app.include_router(kind_router, prefix="/kind")

@@ -7,9 +7,9 @@ from src.services.kind_service import kind_by_id
 kind_router = APIRouter()
 
 
-@kind_router.get('/{kind_id}')
+@kind_router.get("/{kind_id}")
 async def get_kind(kind_id: int, session: Session = Depends(get_session)) -> KindRead:
-    if (kind := kind_by_id(kind_id, session)):
+    if kind := kind_by_id(kind_id, session):
         return kind
     raise HTTPException(
         status_code=status.HTTP_404_NOT_FOUND,
