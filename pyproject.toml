@@ -5,6 +5,7 @@ description = "Simple example project. Use Pydantic, FastAPI, sqlmodel, pytest, 
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "coverage>=7.7.1",
     "fastapi[standard]>=0.115.5",
     "pydantic-settings>=2.8.1",
     "sqlmodel>=0.0.22",
@@ -15,4 +16,12 @@ dev = [
     "pytest-cov>=6.0.0",
     "pytest>=8.3.4",
     "ruff>=0.11.2",
+    "pytest-local-badge>=1.0.3",
 ]
+
+[tool.pytest.ini_options]
+addopts = "--cov=src --cov-report=term --cov-report=html --local-badge-output-dir badges/"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["src/tests/*"]

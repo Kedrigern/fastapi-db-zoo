@@ -4,6 +4,8 @@
 [![uv](https://img.shields.io/badge/built%20with-uv-blueviolet)](https://astral.sh/blog/uv)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0055FF?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com/)
+![tests](badges/tests.svg)
+![coverage](badges/coverage.svg)
 
 This is a simple FastAPI project showcasing a clean structure with examples of using:
 
