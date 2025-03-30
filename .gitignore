@@ -17,3 +17,6 @@ wheels/
 
 # DB
 *.db
+
+# Config
+.env
