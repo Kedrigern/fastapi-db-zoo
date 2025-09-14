@@ -37,6 +37,16 @@ def test_get_pet(client: TestClient, session: Session):
     assert response.json()["name"] == "Arya"
 
 
+def test_kind_list(client: TestClient, session: Session):
+    response = client.get("/kind")
+    assert response.status_code == 200
+    assert list(response.json()) == []
+    prepare_data(session)
+    response = client.get("/kind")
+    assert response.status_code == 200
+    assert len(response.json()) == 3
+
+
 def test_get_kind(client: TestClient, session: Session):
     response = client.get("/kind/1")
     assert response.status_code == 404

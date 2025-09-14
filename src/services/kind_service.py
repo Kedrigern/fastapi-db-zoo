@@ -2,7 +2,7 @@ from sqlmodel import Session, select
 from src.database.models import Kind, KindRead
 
 
-def get_all_kinds(session: Session) -> list[KindRead]:
+def kind_all(session: Session) -> list[KindRead]:
     return session.exec(select(Kind)).all()
 
 

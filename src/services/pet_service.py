@@ -2,7 +2,7 @@ from sqlmodel import Session, select
 from src.database.models import PetRead, Pet
 
 
-def get_all_pets(session: Session) -> list[PetRead]:
+def pets_all(session: Session) -> list[PetRead]:
     return session.exec(select(Pet)).all()
 
 

@@ -2,14 +2,14 @@ from fastapi import APIRouter, HTTPException, status, Depends
 from sqlmodel import Session
 from src.database.models import PetRead
 from src.database.connection import get_session
-from src.services.pet_service import get_all_pets, pet_by_id
+from src.services.pet_service import pets_all, pet_by_id
 
 pets_router = APIRouter()
 
 
 @pets_router.get("/")
 async def list_pets(session: Session = Depends(get_session)) -> list[PetRead]:
-    return get_all_pets(session)
+    return pets_all(session)
 
 
 @pets_router.get("/{pet_id}")
