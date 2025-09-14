@@ -18,24 +18,11 @@ class Pet(SQLModel, table=True):
     kind: Kind = Relationship(back_populates="pets")
 
 
-class PetRead(BaseModel):
-    id: int
-    name: str
-    born: datetime
-    kind: Kind
-
-
-class KindRead(BaseModel):
-    id: int
-    name: str
-    pets: List[Pet] | None
-
-
 class PetWrite(BaseModel):
     name: str
     born: datetime
-    kind_id: int
+    kind_id: int | None
 
 
-class KinwdWrite(BaseModel):
+class KindWrite(BaseModel):
     name: str

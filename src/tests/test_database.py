@@ -1,7 +1,8 @@
 from sqlmodel import Session
 from src.database.connection import fill_demo_data
+from src.database.models import Kind
 from src.services.pet_service import pets_all, pet_by_id
-from src.services.kind_service import kind_all, kind_by_id
+from src.services.kind_service import kind_all, kind_by_id, kind_add
 
 def prepare_data(session: Session):
     fill_demo_data(session)
@@ -25,6 +26,9 @@ def test_kind_service_list(session: Session):
     assert kinds[2].name == "Persian cat"
     kind = kind_by_id(1, session)
     assert kind.name == "French Bulldog"
+    returned_kind = kind_add(Kind(name="Siamese cat"), session)
+    assert returned_kind.id == 4
+
 
 def test_pet_service_list(session: Session):
     assert len(pets_all(session)) == 0
