@@ -1,8 +1,8 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from .database.connection import create_db_and_tables
-from .routers.pet import pets_router
-from .routers.kind import kind_router
+from src.database.connection import create_db_and_tables, fill_demo_data
+from src.routers.pet import pets_router
+from src.routers.kind import kind_router
 
 
 @asynccontextmanager
@@ -12,7 +12,6 @@ async def life_span(_: FastAPI):  # pragma: no cover
 
 
 app = FastAPI(name="ZOO", lifespan=life_span)
-
 
 @app.get("/")
 def hello():

@@ -29,3 +29,13 @@ class KindRead(BaseModel):
     id: int
     name: str
     pets: List[Pet] | None
+
+
+class PetWrite(BaseModel):
+    name: str
+    born: datetime
+    kind_id: int
+
+
+class KinwdWrite(BaseModel):
+    name: str

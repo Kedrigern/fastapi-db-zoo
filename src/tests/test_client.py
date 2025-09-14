@@ -24,7 +24,7 @@ def test_pet_list(client: TestClient, session: Session):
     prepare_data(session)
     response = client.get("/pet")
     assert response.status_code == 200
-    assert len(response.json()) == 1
+    assert len(response.json()) == 2
 
 
 def test_get_pet(client: TestClient, session: Session):
