@@ -44,4 +44,4 @@ def test_get_kind(client: TestClient, session: Session):
     response = client.get("/kind/1")
     assert response.status_code == 200
     assert response.json()["id"] == 1
-    assert response.json()["name"] == "French buldock"
+    assert response.json()["name"] == "French Bulldog"

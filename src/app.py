@@ -6,7 +6,7 @@ from .routers.kind import kind_router
 
 
 @asynccontextmanager
-async def life_span(_: FastAPI):    # pragma: no cover
+async def life_span(_: FastAPI):  # pragma: no cover
     create_db_and_tables()
     yield
 

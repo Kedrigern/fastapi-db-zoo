@@ -5,7 +5,7 @@ from src.services.pet_service import get_all_pets
 
 
 def prepare_data(session: Session):
-    franchie = Kind(name="French buldock")
+    franchie = Kind(name="French Bulldog")
     session.add(franchie)
     session.add(Kind(name="Boxer"))
     session.add(Kind(name="Persian cat"))
@@ -29,4 +29,4 @@ def test_get_pet(session: Session):
     prepare_data(session)
     pets = get_all_pets(session)
     assert pets[0].name == "Arya"
-    assert pets[0].kind.name == "French buldock"
+    assert pets[0].kind.name == "French Bulldog"
