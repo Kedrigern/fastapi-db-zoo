@@ -1,9 +1,8 @@
-from typing import List
 from sqlmodel import Session, select
 from src.database.models import PetRead, Pet
 
 
-def get_all_pets(session: Session) -> List[PetRead]:
+def get_all_pets(session: Session) -> list[PetRead]:
     return session.exec(select(Pet)).all()
 
 

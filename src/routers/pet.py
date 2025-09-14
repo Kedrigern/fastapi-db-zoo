@@ -1,4 +1,3 @@
-from typing import List
 from fastapi import APIRouter, HTTPException, status, Depends
 from sqlmodel import Session
 from src.database.models import PetRead
@@ -9,7 +8,7 @@ pets_router = APIRouter()
 
 
 @pets_router.get("/")
-async def list_pets(session: Session = Depends(get_session)) -> List[PetRead]:
+async def list_pets(session: Session = Depends(get_session)) -> list[PetRead]:
     return get_all_pets(session)
 
 

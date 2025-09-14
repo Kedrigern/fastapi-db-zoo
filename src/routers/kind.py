@@ -2,9 +2,14 @@ from fastapi import APIRouter, HTTPException, status, Depends
 from sqlmodel import Session
 from src.database.models import KindRead
 from src.database.connection import get_session
-from src.services.kind_service import kind_by_id
+from src.services.kind_service import kind_by_id, get_all_kinds
 
 kind_router = APIRouter()
+
+
+@kind_router.get("/")
+async def list_kinds(session: Session = Depends(get_session)) -> list[KindRead]:
+    return get_all_kinds(session)
 
 
 @kind_router.get("/{kind_id}")
